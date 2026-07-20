@@ -1,5 +1,3 @@
-<img width="1168" height="2286" alt="pro" src="https://github.com/user-attachments/assets/8f1a7ed5-f897-4fc5-90b8-f8dda3a5eec4" /># World Cup 2026 Simulator
-
 This is a Python project that simulates the FIFA World Cup 2026 tournament. It uses Object-Oriented Programming (OOP) principles and the Poisson distribution to make match results as realistic as possible.
 
 ## Features
