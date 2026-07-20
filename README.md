@@ -1,4 +1,4 @@
-# World Cup 2026 Simulator
+<img width="1168" height="2286" alt="pro" src="https://github.com/user-attachments/assets/8f1a7ed5-f897-4fc5-90b8-f8dda3a5eec4" /># World Cup 2026 Simulator
 
 This is a Python project that simulates the FIFA World Cup 2026 tournament. It uses Object-Oriented Programming (OOP) principles and the Poisson distribution to make match results as realistic as possible.
 
@@ -16,13 +16,13 @@ This is a Python project that simulates the FIFA World Cup 2026 tournament. It u
 
 ## Screenshot of project
 * **Main manu:**
-<img width="732" height="499" alt="1" src="https://github.com/user-attachments/assets/20a94848-29a0-4139-9421-d7bf76abea42" />
+<img width="732" height="499" alt="mainmenu" src="https://github.com/user-attachments/assets/8f293404-adba-4281-b4e2-5dfbfc3c3d7e" />
 
 * **Multiple simulations:**
-<img width="584" height="1143" alt="pro" src="https://github.com/user-attachments/assets/b5db2488-2fc9-404e-9f7e-f2b4477148ca" />
+<img width="584" height="1143" alt="multiplesimulations" src="https://github.com/user-attachments/assets/56be85ba-ddbd-4ad9-98a0-5d7d96ac2a5c" />
 
 * **Matplotlib output:**
-<img width="640" height="480" alt="Figure_1" src="https://github.com/user-attachments/assets/ad3814d8-adfa-463a-9e19-85352e4491b1" />
+<img width="640" height="480" alt="matplotlibscreenshot" src="https://github.com/user-attachments/assets/469f60f8-d3d5-42e4-9d16-2a712b9faed7" />
 
 ## How to Run
 1. Make sure you have `numpy` and `matplotlib` installed:
