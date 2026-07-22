@@ -193,7 +193,6 @@ class WorldCupSimulator:
             team.reset_stats()
             
         # خالی کردن لیست‌ها و متغیرها برای شبیه‌سازی جدید
-        self.groups = []
         self.knockout_teams = []
         self.round_of_16 = None
         self.quarterfinals = None
@@ -202,7 +201,8 @@ class WorldCupSimulator:
         self.champion = None
         
         # قرعه‌کشی و اجرای مرحله گروهی
-        self.seed_and_draw_groups()
+        if not self.groups:
+            self.seed_and_draw_groups()
         self.run_group_stage(verbose=verbose)
         
         # چیدن براکت حذفی و اجرای مسابقات حذفی
@@ -228,13 +228,15 @@ class WorldCupSimulator:
         champions_chances = {}
 
         for i in range(num_simulations):
-            champion = self.run_full_simulation(verbose=False)
+            self.groups = []  # ریست کردن گروه‌ها برای هر شبیه‌سازی
+            self.seed_and_draw_groups()
+            champion = self.run_full_simulation(verbose=True)
             if champion.name in champions_chances:
                 champions_chances[champion.name] += 1
             else:
                 champions_chances[champion.name] = 1
 
-        sorted_champions = sorted(champions_chances.items(), key=lambda x: x[1], reverse=True)
+        sorted_champions = sorted(champions_chances.items(), key=lambda x: x[1], reverse=False)
 
         for team, wins in sorted_champions:
             probability = (wins / num_simulations) * 100
@@ -246,14 +248,20 @@ class WorldCupSimulator:
             teams = [x[0] for x in sorted_champions]
             chances = [(x[1] / num_simulations) * 100 for x in sorted_champions]
 
+            # رسم نمودار میله‌ای افقی (معکوس کردن لیست‌ها برای قرارگیری بیشترین شانس در بالای نمودار)
             plt.barh(teams[::-1], chances[::-1], color='red')
+            # تنظیم عنوان اصلی نمودار همراه با نمایش تعداد شبیه‌سازی‌ها
             plt.title(f'World Cup 2026 Championship Probabilities\n({num_simulations} Simulations)')
+            # درجه‌بندی محور افقی از ۰ تا ۲۰ درصد با گام‌های ۵ تایی
             plt.xticks(np.arange(0, 21, 5))
+            # تنظیم برچسب محور افقی (درصد شانس قهرمانی)
             plt.xlabel('Chance of Winning (%)')
+            # تنظیم برچسب محور عمودی (تیم‌ها)
             plt.ylabel('Teams')
+            # کوچک کردن اندازه فونت اسامی تیم‌ها در محور عمودی جهت خوانایی بهتر
             plt.yticks(fontsize=8)
+            # تنظیم خودکار حاشیه‌های نمودار برای جلوگیری از بیرون‌زدگی متون
             plt.tight_layout()
-
             print("Displaying bar chart of championship probabilities...")
             plt.show()
 
