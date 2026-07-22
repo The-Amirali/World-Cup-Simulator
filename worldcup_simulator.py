@@ -230,7 +230,7 @@ class WorldCupSimulator:
         for i in range(num_simulations):
             self.groups = []  # ریست کردن گروه‌ها برای هر شبیه‌سازی
             self.seed_and_draw_groups()
-            champion = self.run_full_simulation(verbose=True)
+            champion = self.run_full_simulation(verbose=False)
             if champion.name in champions_chances:
                 champions_chances[champion.name] += 1
             else:
